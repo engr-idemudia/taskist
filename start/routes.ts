@@ -28,7 +28,7 @@ import Route from '@ioc:Adonis/Core/Route'
 // })
 
   //using a controller
-Route.get('/', 'PagesController.home')
+// Route.get('/', 'PagesController.home')
 
   // other http verbs-CRUD operations
 // Route.post() for Create operation
@@ -56,8 +56,12 @@ Route.get('/', 'PagesController.home')
 // Route.get('/about-us', 'PagesController.about') //static route
 // Route.get('/contact-us', 'PagesController.contact')
  
-Route.get('/about/:name?', 'PagesController.about').as('about-osas')
-Route.get('/contact', 'PagesController.contact').as('contact-myProf')
+// Route.get('/about/:name?', 'PagesController.about').as('about-osas')
+// Route.get('/contact', 'PagesController.contact').as('contact-myProf')
+
+Route.get('/', 'TasksController.index')
+Route.post('/tasks', 'TasksController.store')
+ 
  
 
 

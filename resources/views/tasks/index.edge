@@ -1,5 +1,36 @@
 @layout('layouts/app')
 
 @section('content')
-    <h1>Tasks</h1>
+    <div class="columns">
+        <div class="is-three-fifths is-offset-one-fifth">
+            <div class="box">
+                <form action="/tasks" method="post">
+                    {{--  {{ csrfField }}  --}}
+
+                 <div class="field has-addons">
+                     <div class="control is-expanded">
+                         <input type="text" name="title" class="input {{ flashMessages.has('errors.title') ? 
+                        'is-danger' : ''}}" placeholder="what needs to be done" value="{{flashMessages.get
+                        ('title') || ''}}">
+                     </div>
+                     <div class="control">
+                         <button type="submit" class="button is-link">Add</button>
+                     </div>
+                 </div>
+
+                 @if(flashMessages.has('errors.title'))
+                    <p class="help is-danger">
+                        {{ flashMessages.get('errors.title')}}
+                    </p>
+                 @endif
+                </form>
+            </div>
+
+           @if(flashMessages.has('notification'))
+           <div class="notification is-success is-light">
+                {{ flashMessages.get('notification')}}
+            </div>
+            @endif 
+        </div>
+    </div>
 @endsection
